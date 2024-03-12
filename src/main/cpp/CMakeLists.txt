@@ -94,9 +94,6 @@ include(cmake/Modules/ConfigureCUDA.cmake) # set other CUDA compilation flags
 # ##################################################################################################
 # * dependencies ----------------------------------------------------------------------------------
 
-# find NVTX
-include(${CUDF_DIR}/cpp/cmake/thirdparty/get_nvtx.cmake)
-
 # find CCCL
 include(${CUDF_DIR}/cpp/cmake/thirdparty/get_cccl.cmake)
 
@@ -228,7 +225,6 @@ target_link_libraries(
   -Wl,--whole-archive
     ${CUDFJNI_LIB}
     cudf::cudf
-    nvtx3-cpp
   -Wl,--no-whole-archive
     ${PARQUET_LIB}
     ${THRIFT_LIB}
